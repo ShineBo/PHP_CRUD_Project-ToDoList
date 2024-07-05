@@ -28,46 +28,52 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <title>Student Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
+        body {
+            background-color: #f0f2f5;
+            font-family: 'Nunito', sans-serif;
         }
-        th, td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: left;
+        .thead-dark {
+            background-color: #343a40;
+            color: white;
         }
-        th {
-            background-color: #f2f2f2;
+        .container {
+            background-color: #f1faff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
         }
     </style>
 </head>
 <body>
-    <h1>Student Dashboard</h1>
-    <a href="logout.php">Logout</a>
-    <h2>Student-To-Do List</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Resource Link</th>
-                <th>Class Day</th>
-                <th>Date</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($todo_items as $item): ?>
+    <div class="container mt-5">
+        <h1 class="mb-4">Student Dashboard</h1>
+        <a href="logout.php" class="btn btn-danger mb-4">Logout</a>
+        <h2 class="mb-4">Student To-Do List</h2>
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
                 <tr>
-                    <td><?php echo htmlspecialchars($item['title']); ?></td>
-                    <td><?php echo htmlspecialchars($item['description']); ?></td>
-                    <td><a href="<?php echo htmlspecialchars($item['resource_link']); ?>"><?php echo htmlspecialchars($item['resource_link_name']); ?></a></td>
-                    <td><?php echo htmlspecialchars($item['class_day']); ?></td>
-                    <td><?php echo htmlspecialchars($item['date']); ?></td>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Resource Link</th>
+                    <th>Class Day</th>
+                    <th>Date</th>
                 </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php foreach ($todo_items as $item): ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($item['title']); ?></td>
+                        <td><?php echo htmlspecialchars($item['description']); ?></td>
+                        <td><a href="<?php echo htmlspecialchars($item['resource_link']); ?>"><?php echo htmlspecialchars($item['resource_link_name']); ?></a></td>
+                        <td><?php echo htmlspecialchars($item['class_day']); ?></td>
+                        <td><?php echo htmlspecialchars($item['date']); ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

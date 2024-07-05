@@ -23,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->close();
     $conn->close();
 
+    $_SESSION['message'] = "To-do item created successfully!";
     header("Location: teacher_dashboard.php");
     exit();
 }
@@ -33,31 +34,81 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <title>Create To-Do</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f2f5;
+            font-family: 'Nunito', sans-serif;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #f1faff;
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+            color: #343a40;
+        }
+        .form-container .form-group {
+            margin-bottom: 20px;
+        }
+        .form-container .form-control {
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+        }
+        .form-container .btn {
+            width: 100%;
+            background-color: #0d1f2e;
+            border-color: #0d1f2e;
+            color: #ffffff;
+            border-radius: 20px;
+            padding: 10px 0;
+        }
+        .form-container .btn:hover {
+            background-color: #384149;
+            border-color: #384149;
+        }
+    </style>
 </head>
 <body>
-    <h1>Create New To-Do</h1>
-    <form action="create_todo.php" method="post">
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title" required><br>
-
-        <label for="description">Description:</label>
-        <textarea id="description" name="description" required></textarea><br>
-
-        <label for="resource_link">Resource Link:</label>
-        <input type="url" id="resource_link" name="resource_link" required><br>
-
-        <label for="resource_link_name">Resource Link Name:</label>
-        <input type="text" id="resource_link_name" name="resource_link_name" required><br>
-
-        <label for="class_day">Class Day:</label>
-        <input type="text" id="class_day" name="class_day" required><br>
-
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="date" required><br>
-
-        <button type="submit">Create</button>
-    </form>
-    <br>
-    <a href="teacher_dashboard.php">Back to Dashboard</a>
+    <div class="container">
+        <div class="form-container">
+            <h2 class="text-center">Create New To-Do</h2>
+            <form action="create_todo.php" method="post">
+                <div class="form-group">
+                    <label for="title">Title:</label>
+                    <input type="text" class="form-control" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="resource_link">Resource Link:</label>
+                    <input type="url" class="form-control" id="resource_link" name="resource_link" required>
+                </div>
+                <div class="form-group">
+                    <label for="resource_link_name">Resource Link Name:</label>
+                    <input type="text" class="form-control" id="resource_link_name" name="resource_link_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="class_day">Class Day:</label>
+                    <input type="text" class="form-control" id="class_day" name="class_day" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" class="form-control" id="date" name="date" required>
+                </div>
+                <button type="submit" class="btn btn-secondary btn-sm">Create</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

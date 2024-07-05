@@ -18,13 +18,6 @@ function login($username, $password, $role) {
         $stmt->bind_result($id, $db_password);
         $stmt->fetch();
 
-        // Debug information
-        if ($password === $db_password) {
-            echo "Passwords match. Logging in...";
-        } else {
-            echo "Passwords do not match.";
-        }
-
         if ($password === $db_password) { 
             $_SESSION['user_id'] = $id;
             $_SESSION['username'] = $username;
@@ -34,25 +27,10 @@ function login($username, $password, $role) {
             return false;
         }
     } else {
-        echo "No user found with that username and role.";
         return false;
     }
 
     $stmt->close();
-    $conn->close();
-}
-
-function fetchAllUsers() {
-    $conn = connectDatabase();
-    $sql = "SELECT id, username, role FROM users";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        return $result->fetch_all(MYSQLI_ASSOC);
-    } else {
-        return [];
-    }
-
     $conn->close();
 }
 ?>

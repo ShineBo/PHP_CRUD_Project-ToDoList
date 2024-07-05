@@ -17,6 +17,7 @@ $stmt->execute();
 $stmt->close();
 $conn->close();
 
+$_SESSION['message'] = "To-do item deleted successfully!";
 header("Location: teacher_dashboard.php");
 exit();
 ?>
