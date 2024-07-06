@@ -113,6 +113,7 @@ $conn->close();
                     <input type="date" class="form-control" id="date" name="date" value="<?php echo htmlspecialchars($date); ?>" required>
                 </div>
                 <button type="submit" class="btn btn-secondary btn-sm">Update</button>
+                <a href="teacher_dashboard.php" class="btn btn-secondary mt-2 btn-sm">Back</a>
             </form>
         </div>
     </div>

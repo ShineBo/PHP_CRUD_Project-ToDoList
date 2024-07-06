@@ -47,6 +47,11 @@
     <div class="container">
         <div class="form-container">
             <h2 class="text-center">Login</h2>
+            <?php if (!empty($error_message)) { ?>
+                <div class="alert alert-danger" role="alert">
+                    <?php echo $error_message; ?>
+                </div>
+            <?php } ?>
             <form action="../public/login.php" method="post">
                 <div class="form-group">
                     <label for="username">Username:</label>

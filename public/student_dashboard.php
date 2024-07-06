@@ -8,7 +8,6 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'student') {
     exit();
 }
 
-$user_id = $_SESSION['user_id'];
 $conn = connectDatabase();
 
 // Fetch all to-do items for the logged-in student

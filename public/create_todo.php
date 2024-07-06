@@ -104,6 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <input type="date" class="form-control" id="date" name="date" required>
                 </div>
                 <button type="submit" class="btn btn-secondary btn-sm">Create</button>
+                <a href="teacher_dashboard.php" class="btn btn-secondary mt-2 btn-sm">Back</a>
             </form>
         </div>
     </div>

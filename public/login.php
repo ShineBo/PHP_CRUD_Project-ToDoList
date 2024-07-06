@@ -1,6 +1,8 @@
 <?php
 include '../includes/functions.php';
 
+$error_message = "";
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -13,9 +15,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header("Location: student_dashboard.php");
         }
     } else {
-        echo "Invalid username, password, or role.";
+        $error_message = "Invalid username, password, or role.";
     }
-} else {
-    include '../templates/login_form.html';
 }
+
+include '../templates/login_form.php';
 ?>
